@@ -1,0 +1,13 @@
+CREATE TABLE `user` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `first_name` VARCHAR(256) NOT NULL,
+  `last_name` VARCHAR(256) NOT NULL
+);
+
+CREATE TABLE `item` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(512) NOT NULL,
+  `user_id` BIGINT UNSIGNED NOT NULL REFERENCES `user` (`id`),
+
+  INDEX `idx_item_userid` (`user_id`)
+);

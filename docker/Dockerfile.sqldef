@@ -1,0 +1,10 @@
+FROM ubuntu:22.10
+
+ARG SQLDEF_VERSION="v0.11.59"
+
+WORKDIR /sqldef
+
+RUN apt-get update -y && apt-get install wget -y
+RUN wget -O - https://github.com/k0kubun/sqldef/releases/latest/download/mysqldef_linux_amd64.tar.gz \
+    | tar xvz
+RUN cp mysqldef /usr/local/bin/
